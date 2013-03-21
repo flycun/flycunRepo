@@ -77,4 +77,11 @@ public class Person {
         event.getParticipants().remove(this);
     }
 
+
+	@Override
+	public String toString()
+	{
+		return new StringBuffer().append("name ").append(firstname).append(" " ).append(lastname).toString();
+	}
+
 }
