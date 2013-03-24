@@ -1,82 +1,76 @@
-14:57:38,193  INFO Environment:570 - Hibernate 3.5.5-Final
-14:57:38,197  INFO Environment:603 - hibernate.properties not found
-14:57:38,200  INFO Environment:781 - Bytecode provider name : javassist
-14:57:38,203  INFO Environment:662 - using JDK 1.4 java.sql.Timestamp handling
-14:57:38,299  INFO Configuration:1518 - configuring from resource: /hibernate.cfg.xml
-14:57:38,300  INFO Configuration:1495 - Configuration resource: /hibernate.cfg.xml
-14:57:38,364  INFO Configuration:655 - Reading mappings from resource : org/hibernate/tutorial/domain/Event.hbm.xml
-14:57:38,411  INFO HbmBinder:348 - Mapping class: org.hibernate.tutorial.domain.Event -> EVENTS
-14:57:38,426  INFO HbmBinder:1487 - Mapping collection: org.hibernate.tutorial.domain.Event.participants -> PERSON_EVENT
-14:57:38,427  INFO Configuration:655 - Reading mappings from resource : org/hibernate/tutorial/domain/Person.hbm.xml
-14:57:38,440  INFO HbmBinder:348 - Mapping class: org.hibernate.tutorial.domain.Person -> PERSON
-14:57:38,441  INFO HbmBinder:1487 - Mapping collection: org.hibernate.tutorial.domain.Person.events -> PERSON_EVENT
-14:57:38,442  INFO HbmBinder:1487 - Mapping collection: org.hibernate.tutorial.domain.Person.emailAddresses -> PERSON_EMAIL_ADDR
-14:57:38,442  INFO Configuration:1633 - Configured SessionFactory: null
-14:57:38,489  INFO DriverManagerConnectionProvider:64 - Using Hibernate built-in connection pool (not for production use!)
-14:57:38,490  INFO DriverManagerConnectionProvider:65 - Hibernate connection pool size: 1
-14:57:38,492  INFO DriverManagerConnectionProvider:68 - autocommit mode: false
-14:57:38,498  INFO DriverManagerConnectionProvider:103 - using driver: com.mysql.jdbc.Driver at URL: jdbc:mysql://localhost:3306/test
-14:57:38,498  INFO DriverManagerConnectionProvider:109 - connection properties: {user=root, password=****}
-14:57:38,677  INFO SettingsFactory:117 - RDBMS: MySQL, version: 5.1.46-community
-14:57:38,678  INFO SettingsFactory:118 - JDBC driver: MySQL-AB JDBC Driver, version: mysql-connector-java-5.1.7 ( Revision: ${svn.Revision} )
-14:57:38,696  INFO Dialect:206 - Using dialect: org.hibernate.dialect.MySQLDialect
-14:57:38,700  INFO JdbcSupportLoader:79 - Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
-14:57:38,701  INFO TransactionFactoryFactory:59 - Using default transaction strategy (direct JDBC transactions)
-14:57:38,702  INFO TransactionManagerLookupFactory:80 - No TransactionManagerLookup configured (in JTA environment, use of read-write or transactional second-level cache is not recommended)
-14:57:38,702  INFO SettingsFactory:169 - Automatic flush during beforeCompletion(): disabled
-14:57:38,702  INFO SettingsFactory:173 - Automatic session close at end of transaction: disabled
-14:57:38,702  INFO SettingsFactory:180 - JDBC batch size: 15
-14:57:38,702  INFO SettingsFactory:183 - JDBC batch updates for versioned data: disabled
-14:57:38,703  INFO SettingsFactory:188 - Scrollable result sets: enabled
-14:57:38,703  INFO SettingsFactory:196 - JDBC3 getGeneratedKeys(): enabled
-14:57:38,703  INFO SettingsFactory:204 - Connection release mode: auto
-14:57:38,704  INFO SettingsFactory:228 - Maximum outer join fetch depth: 2
-14:57:38,704  INFO SettingsFactory:231 - Default batch fetch size: 1
-14:57:38,704  INFO SettingsFactory:235 - Generate SQL with comments: disabled
-14:57:38,704  INFO SettingsFactory:239 - Order SQL updates by primary key: disabled
-14:57:38,704  INFO SettingsFactory:243 - Order SQL inserts for batching: disabled
-14:57:38,704  INFO SettingsFactory:410 - Query translator: org.hibernate.hql.ast.ASTQueryTranslatorFactory
-14:57:38,706  INFO ASTQueryTranslatorFactory:47 - Using ASTQueryTranslatorFactory
-14:57:38,706  INFO SettingsFactory:251 - Query language substitutions: {}
-14:57:38,706  INFO SettingsFactory:256 - JPA-QL strict compliance: disabled
-14:57:38,706  INFO SettingsFactory:261 - Second-level cache: enabled
-14:57:38,706  INFO SettingsFactory:265 - Query cache: disabled
-14:57:38,709  INFO SettingsFactory:395 - Cache region factory : org.hibernate.cache.impl.bridge.RegionFactoryCacheProviderBridge
-14:57:38,709  INFO RegionFactoryCacheProviderBridge:61 - Cache provider: org.hibernate.cache.NoCacheProvider
-14:57:38,709  INFO SettingsFactory:275 - Optimize cache for minimal puts: disabled
-14:57:38,710  INFO SettingsFactory:284 - Structured second-level cache entries: disabled
-14:57:38,713  INFO SettingsFactory:304 - Echoing all SQL to stdout
-14:57:38,715  INFO SettingsFactory:313 - Statistics: disabled
-14:57:38,715  INFO SettingsFactory:317 - Deleted entity synthetic identifier rollback: disabled
-14:57:38,715  INFO SettingsFactory:332 - Default entity-mode: pojo
-14:57:38,715  INFO SettingsFactory:336 - Named query checking : enabled
-14:57:38,715  INFO SettingsFactory:340 - Check Nullability in Core (should be disabled when Bean Validation is on): enabled
-14:57:38,738  INFO SessionFactoryImpl:199 - building session factory
-14:57:38,902  INFO SessionFactoryObjectFactory:105 - Not binding factory to JNDI, no JNDI name configured
-14:57:38,908  INFO SchemaUpdate:155 - Running hbm2ddl schema update
-14:57:38,908  INFO SchemaUpdate:167 - fetching database metadata
-14:57:38,909  INFO SchemaUpdate:179 - updating schema
-14:57:38,926  INFO TableMetadata:65 - table found: test.events
-14:57:38,927  INFO TableMetadata:66 - columns: [title, event_date, event_id]
-14:57:38,927  INFO TableMetadata:68 - foreign keys: []
-14:57:38,927  INFO TableMetadata:69 - indexes: [primary]
-14:57:38,935  INFO TableMetadata:65 - table found: test.person
-14:57:38,936  INFO TableMetadata:66 - columns: [person_id, age, lastname, firstname]
-14:57:38,936  INFO TableMetadata:68 - foreign keys: []
-14:57:38,936  INFO TableMetadata:69 - indexes: [primary]
-14:57:38,945  INFO TableMetadata:65 - table found: test.person_email_addr
-14:57:38,945  INFO TableMetadata:66 - columns: [person_id, email_addr]
-14:57:38,945  INFO TableMetadata:68 - foreign keys: [fka54215feb0a1327a]
-14:57:38,945  INFO TableMetadata:69 - indexes: [fka54215feb0a1327a]
-14:57:38,953  INFO TableMetadata:65 - table found: test.person_event
-14:57:38,953  INFO TableMetadata:66 - columns: [person_id, event_id]
-14:57:38,954  INFO TableMetadata:68 - foreign keys: [fkad91d910a8b41a9a, fkad91d910b0a1327a]
-14:57:38,954  INFO TableMetadata:69 - indexes: [fkad91d910a8b41a9a, fkad91d910b0a1327a, primary]
-14:57:38,955  INFO SchemaUpdate:217 - schema update complete
-14:57:39,035 DEBUG SQL:111 - insert into EVENTS (EVENT_DATE, title) values (?, ?)
-14:57:39,087 DEBUG SQL:111 - insert into PERSON (age, firstname, lastname) values (?, ?, ?)
-14:57:39,116 DEBUG SQL:111 - select person0_.PERSON_ID as PERSON1_2_0_, person0_.age as age2_0_, person0_.firstname as firstname2_0_, person0_.lastname as lastname2_0_ from PERSON person0_ where person0_.PERSON_ID=?
-14:57:39,131 DEBUG SQL:111 - select events0_.PERSON_ID as PERSON2_2_1_, events0_.EVENT_ID as EVENT1_1_, event1_.EVENT_ID as EVENT1_0_0_, event1_.EVENT_DATE as EVENT2_0_0_, event1_.title as title0_0_ from PERSON_EVENT events0_ inner join EVENTS event1_ on events0_.EVENT_ID=event1_.EVENT_ID where events0_.PERSON_ID=?
-14:57:39,142 DEBUG SQL:111 - insert into PERSON_EVENT (PERSON_ID, EVENT_ID) values (?, ?)
-14:57:39,159  INFO SessionFactoryImpl:940 - closing
-14:57:39,159  INFO DriverManagerConnectionProvider:170 - cleaning up connection pool: jdbc:mysql://localhost:3306/test
+20:55:07,394  INFO Environment:570 - Hibernate 3.5.5-Final
+20:55:07,401  INFO Environment:603 - hibernate.properties not found
+20:55:07,411  INFO Environment:781 - Bytecode provider name : javassist
+20:55:07,419  INFO Environment:662 - using JDK 1.4 java.sql.Timestamp handling
+20:55:07,590  INFO Configuration:1518 - configuring from resource: /hibernate.cfg.xml
+20:55:07,590  INFO Configuration:1495 - Configuration resource: /hibernate.cfg.xml
+20:55:07,711  INFO Configuration:655 - Reading mappings from resource : org/hibernate/tutorial/domain/Event.hbm.xml
+20:55:07,809  INFO HbmBinder:348 - Mapping class: org.hibernate.tutorial.domain.Event -> EVENTS
+20:55:07,845  INFO HbmBinder:1487 - Mapping collection: org.hibernate.tutorial.domain.Event.participants -> PERSON_EVENT
+20:55:07,848  INFO Configuration:655 - Reading mappings from resource : org/hibernate/tutorial/domain/Person.hbm.xml
+20:55:07,873  INFO HbmBinder:348 - Mapping class: org.hibernate.tutorial.domain.Person -> PERSON
+20:55:07,875  INFO HbmBinder:1487 - Mapping collection: org.hibernate.tutorial.domain.Person.events -> PERSON_EVENT
+20:55:07,876  INFO HbmBinder:1487 - Mapping collection: org.hibernate.tutorial.domain.Person.emailAddresses -> PERSON_EMAIL_ADDR
+20:55:07,876  INFO Configuration:1633 - Configured SessionFactory: null
+20:55:07,982  INFO DriverManagerConnectionProvider:64 - Using Hibernate built-in connection pool (not for production use!)
+20:55:07,982  INFO DriverManagerConnectionProvider:65 - Hibernate connection pool size: 1
+20:55:07,988  INFO DriverManagerConnectionProvider:68 - autocommit mode: false
+20:55:08,000  INFO DriverManagerConnectionProvider:103 - using driver: com.mysql.jdbc.Driver at URL: jdbc:mysql://localhost:3306/test
+20:55:08,001  INFO DriverManagerConnectionProvider:109 - connection properties: {user=root, password=****}
+20:55:08,336  INFO SettingsFactory:117 - RDBMS: MySQL, version: 5.0.17-nt
+20:55:08,336  INFO SettingsFactory:118 - JDBC driver: MySQL-AB JDBC Driver, version: mysql-connector-java-5.1.7 ( Revision: ${svn.Revision} )
+20:55:08,377  INFO Dialect:206 - Using dialect: org.hibernate.dialect.MySQLDialect
+20:55:08,386  INFO JdbcSupportLoader:79 - Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+20:55:08,388  INFO TransactionFactoryFactory:59 - Using default transaction strategy (direct JDBC transactions)
+20:55:08,390  INFO TransactionManagerLookupFactory:80 - No TransactionManagerLookup configured (in JTA environment, use of read-write or transactional second-level cache is not recommended)
+20:55:08,391  INFO SettingsFactory:169 - Automatic flush during beforeCompletion(): disabled
+20:55:08,391  INFO SettingsFactory:173 - Automatic session close at end of transaction: disabled
+20:55:08,391  INFO SettingsFactory:180 - JDBC batch size: 15
+20:55:08,392  INFO SettingsFactory:183 - JDBC batch updates for versioned data: disabled
+20:55:08,393  INFO SettingsFactory:188 - Scrollable result sets: enabled
+20:55:08,393  INFO SettingsFactory:196 - JDBC3 getGeneratedKeys(): enabled
+20:55:08,393  INFO SettingsFactory:204 - Connection release mode: auto
+20:55:08,394  INFO SettingsFactory:228 - Maximum outer join fetch depth: 2
+20:55:08,395  INFO SettingsFactory:231 - Default batch fetch size: 1
+20:55:08,395  INFO SettingsFactory:235 - Generate SQL with comments: disabled
+20:55:08,395  INFO SettingsFactory:239 - Order SQL updates by primary key: disabled
+20:55:08,395  INFO SettingsFactory:243 - Order SQL inserts for batching: disabled
+20:55:08,395  INFO SettingsFactory:410 - Query translator: org.hibernate.hql.ast.ASTQueryTranslatorFactory
+20:55:08,398  INFO ASTQueryTranslatorFactory:47 - Using ASTQueryTranslatorFactory
+20:55:08,399  INFO SettingsFactory:251 - Query language substitutions: {}
+20:55:08,399  INFO SettingsFactory:256 - JPA-QL strict compliance: disabled
+20:55:08,399  INFO SettingsFactory:261 - Second-level cache: enabled
+20:55:08,399  INFO SettingsFactory:265 - Query cache: disabled
+20:55:08,405  INFO SettingsFactory:395 - Cache region factory : org.hibernate.cache.impl.bridge.RegionFactoryCacheProviderBridge
+20:55:08,405  INFO RegionFactoryCacheProviderBridge:61 - Cache provider: org.hibernate.cache.NoCacheProvider
+20:55:08,406  INFO SettingsFactory:275 - Optimize cache for minimal puts: disabled
+20:55:08,406  INFO SettingsFactory:284 - Structured second-level cache entries: disabled
+20:55:08,412  INFO SettingsFactory:304 - Echoing all SQL to stdout
+20:55:08,414  INFO SettingsFactory:313 - Statistics: disabled
+20:55:08,414  INFO SettingsFactory:317 - Deleted entity synthetic identifier rollback: disabled
+20:55:08,415  INFO SettingsFactory:332 - Default entity-mode: pojo
+20:55:08,415  INFO SettingsFactory:336 - Named query checking : enabled
+20:55:08,415  INFO SettingsFactory:340 - Check Nullability in Core (should be disabled when Bean Validation is on): enabled
+20:55:08,466  INFO SessionFactoryImpl:199 - building session factory
+20:55:08,792  INFO SessionFactoryObjectFactory:105 - Not binding factory to JNDI, no JNDI name configured
+20:55:08,801  INFO SchemaUpdate:155 - Running hbm2ddl schema update
+20:55:08,802  INFO SchemaUpdate:167 - fetching database metadata
+20:55:08,804  INFO SchemaUpdate:179 - updating schema
+20:55:08,841  INFO TableMetadata:65 - table found: test.events
+20:55:08,842  INFO TableMetadata:66 - columns: [title, event_date, event_id]
+20:55:08,842  INFO TableMetadata:68 - foreign keys: []
+20:55:08,842  INFO TableMetadata:69 - indexes: [primary]
+20:55:08,862  INFO TableMetadata:65 - table found: test.person
+20:55:08,863  INFO TableMetadata:66 - columns: [person_id, age, lastname, firstname]
+20:55:08,863  INFO TableMetadata:68 - foreign keys: []
+20:55:08,863  INFO TableMetadata:69 - indexes: [primary]
+20:55:08,880  INFO TableMetadata:65 - table found: test.person_email_addr
+20:55:08,881  INFO TableMetadata:66 - columns: [person_id, email_addr]
+20:55:08,881  INFO TableMetadata:68 - foreign keys: [fka54215feb0a1327a]
+20:55:08,881  INFO TableMetadata:69 - indexes: [fka54215feb0a1327a]
+20:55:08,898  INFO TableMetadata:65 - table found: test.person_event
+20:55:08,898  INFO TableMetadata:66 - columns: [person_id, event_id]
+20:55:08,899  INFO TableMetadata:68 - foreign keys: [fkad91d910a8b41a9a, fkad91d910b0a1327a]
+20:55:08,899  INFO TableMetadata:69 - indexes: [fkad91d910a8b41a9a, fkad91d910b0a1327a, primary]
+20:55:08,900  INFO SchemaUpdate:217 - schema update complete
+20:55:09,263 DEBUG SQL:111 - select event0_.EVENT_ID as EVENT1_0_, event0_.EVENT_DATE as EVENT2_0_, event0_.title as title0_ from EVENTS event0_

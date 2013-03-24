@@ -125,4 +125,73 @@ public class AccountManager {
 	public void setAuthorityDao(AuthorityDao authorityDao) {
 		this.authorityDao = authorityDao;
 	}
+	
+/*	public InputStream getInputStream()
+	{
+		HSSFWorkbook wb = new HSSFWorkbook();
+		HSSFSheet sheet = wb.createSheet("sheet1");
+
+		HSSFRow row = sheet.createRow(0);
+
+		HSSFCell cell = row.createCell((short) 0);
+		cell.setEncoding(HSSFCell.ENCODING_UTF_16);
+		cell.setCellValue("序号");
+
+		cell = row.createCell((short) 1);
+		cell.setEncoding(HSSFCell.ENCODING_UTF_16);
+		cell.setCellValue("姓");
+
+		cell = row.createCell((short) 2);
+		cell.setEncoding(HSSFCell.ENCODING_UTF_16);
+		cell.setCellValue("名");
+
+		cell = row.createCell((short) 3);
+		cell.setEncoding(HSSFCell.ENCODING_UTF_16);
+		cell.setCellValue("年龄");
+
+		List<User> list = this.findAll();
+
+		for (int i = 0; i < list.size(); ++i)
+		{
+			User user = list.get(i);
+
+			row = sheet.createRow(i + 1);
+
+			cell = row.createCell((short) 0);
+			cell.setEncoding(HSSFCell.ENCODING_UTF_16);
+			cell.setCellValue(i + 1);
+
+			cell = row.createCell((short) 1);
+			cell.setEncoding(HSSFCell.ENCODING_UTF_16);
+			cell.setCellValue(user.getFirstname());
+
+			cell = row.createCell((short) 2);
+			cell.setEncoding(HSSFCell.ENCODING_UTF_16);
+			cell.setCellValue(user.getLastname());
+
+			cell = row.createCell((short) 3);
+			cell.setEncoding(HSSFCell.ENCODING_UTF_16);
+			cell.setCellValue(user.getAge());
+		}
+		
+		ByteArrayOutputStream os = new ByteArrayOutputStream();
+		
+		try
+		{
+			wb.write(os);
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+		
+		byte[] content = os.toByteArray();
+		
+		InputStream is = new ByteArrayInputStream(content);
+		
+		return is;
+		
+
+
+	}*/
 }

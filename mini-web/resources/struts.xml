@@ -4,12 +4,11 @@
 <struts>
 	<constant name="struts.convention.default.parent.package" value="crud-default" />
 	<constant name="struts.convention.package.locators" value="web" />
-	<constant name="struts.convention.package.locators.basePackage" value="org.springside.examples.miniweb" />
+	<constant name="struts.convention.package.locators.basePackage"	value="org.springside.examples.miniweb" />
 
 	<!-- 用于CRUD Action的parent package -->
 	<package name="crud-default" extends="convention-default">
-		<!-- 基于paramsPrepareParamsStack,
-			增加store interceptor保证actionMessage在redirect后不会丢失 -->
+		<!-- 基于paramsPrepareParamsStack, 增加store interceptor保证actionMessage在redirect后不会丢失 -->
 		<interceptors>
 			<interceptor-stack name="crudStack">
 				<interceptor-ref name="store">
@@ -22,8 +21,5 @@
 		<default-interceptor-ref name="crudStack" />
 	</package>
 
-	<!-- 
-		使用Convention插件,实现约定大于配置的零配置文件风格.
-	           特殊的Result路径在Action类中使用@Result设定. 
-	-->
+	<!-- 使用Convention插件,实现约定大于配置的零配置文件风格. 特殊的Result路径在Action类中使用@Result设定. -->
 </struts>
