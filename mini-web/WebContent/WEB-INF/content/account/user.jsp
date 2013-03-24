@@ -32,7 +32,7 @@
 							 value="${param['filter_LIKES_name_OR_email']}" size="9"/>
 			<input type="button" value="搜索用户" onclick="search();"/>
 		
-			<input type="button" value="导出文件" onclick="search();"/>
+			<input type="button" value="导出文件" onclick="search2();"/>
 		</div>
 		<div id="content">
 			<table id="contentTable">

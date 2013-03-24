@@ -27,3 +27,8 @@ function search() {
 
 	$("#mainForm").submit();
 }
+
+function search() {
+	
+	$("#mainForm").submit();
+}
