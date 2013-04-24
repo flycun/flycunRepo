@@ -19,12 +19,14 @@
 		<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
 		<!-- Echo all executed SQL to stdout -->
 		<property name="show_sql">true</property>
+		<property name="format_sql">true</property>
 		<!-- Drop and re-create the database schema on startup -->
 		<property name="hbm2ddl.auto">update</property>
 
 		
-			<mapping resource="org/hibernate/tutorial/domain/Event.hbm.xml" />
-			<mapping resource="org/hibernate/tutorial/domain/Person.hbm.xml" />
+		<mapping class="com.bjsxt.hibernate.Category"/>
+		  <mapping class="com.bjsxt.hibernate.Msg"/>
+		  <mapping class="com.bjsxt.hibernate.Topic"/>
 		
 		
 	</session-factory>
