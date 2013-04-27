@@ -68,7 +68,7 @@ public class HibernateQLTest {
 		session.close();
 	}
 	
-	//list Óë iterate 
+	//list ï¿½ï¿½ iterate 
 	@Test
 	public void testQuery5() {
 		Session session = sf.openSession();
@@ -88,7 +88,7 @@ public class HibernateQLTest {
 		session.close();
 	}
 	
-	//list Óë iterate 
+	//list ï¿½ï¿½ iterate 
 	@Test
 	public void testQuery6() {
 		Session session = sf.openSession();
