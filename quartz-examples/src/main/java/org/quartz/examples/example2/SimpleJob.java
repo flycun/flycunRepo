@@ -17,6 +17,7 @@
 
 package org.quartz.examples.example2;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.slf4j.Logger;
@@ -59,7 +60,7 @@ public class SimpleJob implements Job {
         // This job simply prints out its job name and the
         // date and time that it is running
         JobKey jobKey = context.getJobDetail().getKey();
-        _log.info("SimpleJob says: " + jobKey + " executing at " + new Date());
+        _log.info("-------> SimpleJob says: " + jobKey + " executing at " +new SimpleDateFormat("yyyyMMdd HH:mm:ss").format( new Date()));
     }
 
 }

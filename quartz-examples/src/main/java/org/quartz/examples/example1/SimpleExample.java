@@ -1,20 +1,3 @@
-/* 
- * Copyright 2005 - 2009 Terracotta, Inc. 
- * 
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not 
- * use this file except in compliance with the License. You may obtain a copy 
- * of the License at 
- * 
- *   http://www.apache.org/licenses/LICENSE-2.0 
- *   
- * Unless required by applicable law or agreed to in writing, software 
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT 
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the 
- * License for the specific language governing permissions and limitations 
- * under the License.
- * 
- */
-
 package org.quartz.examples.example1;
 
 import static org.quartz.JobBuilder.newJob;
@@ -32,72 +15,61 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * This Example will demonstrate how to start and shutdown the Quartz 
- * scheduler and how to schedule a job to run in Quartz.
- * 
- * @author Bill Kratzer
+ * 演示怎样启动和关闭Quartz scheduler，怎样调度并运行一个job
  */
 public class SimpleExample {
 
-    
-    public void run() throws Exception {
-        Logger log = LoggerFactory.getLogger(SimpleExample.class);
+	public void run() throws Exception {
+		Logger log = LoggerFactory.getLogger(SimpleExample.class);
 
-        log.info("------- Initializing ----------------------");
+		log.info("------- Initializing ----------------------");
 
-        // First we must get a reference to a scheduler
-        SchedulerFactory sf = new StdSchedulerFactory();
-        Scheduler sched = sf.getScheduler();
+		// 实现获取一个scheduler实例
+		SchedulerFactory sf = new StdSchedulerFactory();
+		Scheduler sched = sf.getScheduler();
 
-        log.info("------- Initialization Complete -----------");
+		log.info("------- Initialization Complete -----------");
 
-        // computer a time that is on the next round minute
-        Date runTime = evenMinuteDate(new Date());
+		// computer a time that is on the next round minute
+		Date runTime = evenMinuteDate(new Date());
 
-        log.info("------- Scheduling Job  -------------------");
+		log.info("------- Scheduling Job  -------------------");
 
-        // define the job and tie it to our HelloJob class
-        JobDetail job = newJob(HelloJob.class)
-            .withIdentity("job1", "group1")
-            .build();
-        
-        // Trigger the job to run on the next round minute
-        Trigger trigger = newTrigger()
-            .withIdentity("trigger1", "group1")
-            .startAt(runTime)
-            .build();
-        
-        // Tell quartz to schedule the job using our trigger
-        sched.scheduleJob(job, trigger);
-        log.info(job.getKey() + " will run at: " + runTime);  
+		// 定义一个绑定到 HelloJob class的 job实例
+		JobDetail job = newJob(HelloJob.class).withIdentity("job1", "group1")
+				.build();
 
-        // Start up the scheduler (nothing can actually run until the 
-        // scheduler has been started)
-        sched.start();
+		// 定义一个该job的触发器
+		Trigger trigger = newTrigger().withIdentity("trigger1", "group1")
+				.startAt(runTime).build();
 
-        log.info("------- Started Scheduler -----------------");
+		// 通知quartz使用触发器调度job
+		sched.scheduleJob(job, trigger);
+		log.info(job.getKey() + " will run at: " + runTime);
 
-        // wait long enough so that the scheduler as an opportunity to 
-        // run the job!
-        log.info("------- Waiting 65 seconds... -------------");
-        try {
-            // wait 65 seconds to show job
-            Thread.sleep(65L * 1000L); 
-            // executing...
-        } catch (Exception e) {
-        }
+		// 启动 scheduler (启动之前，任何任务都不会运行)
+		sched.start();
 
-        // shut down the scheduler
-        log.info("------- Shutting Down ---------------------");
-        sched.shutdown(true);
-        log.info("------- Shutdown Complete -----------------");
-    }
+		log.info("------- Started Scheduler -----------------");
 
-    public static void main(String[] args) throws Exception {
+		log.info("------- Waiting 20 seconds... -------------");
+		try {
+			Thread.sleep(20L * 1000L);
+			// executing...
+		} catch (Exception e) {
+		}
 
-        SimpleExample example = new SimpleExample();
-        example.run();
+		// 关闭 scheduler
+		log.info("------- Shutting Down ---------------------");
+		sched.shutdown(true);
+		log.info("------- Shutdown Complete -----------------");
+	}
 
-    }
+	public static void main(String[] args) throws Exception {
+
+		SimpleExample example = new SimpleExample();
+		example.run();
+
+	}
 
 }
