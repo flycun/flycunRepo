@@ -3,7 +3,11 @@ package org.springside.examples.quickstart.service.task;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
+import javax.persistence.Entity;
+
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -70,9 +74,14 @@ public class TaskService {
 	 */
 	private Specification<Task> buildSpecification(Long userId, Map<String, Object> searchParams) {
 		Map<String, SearchFilter> filters = SearchFilter.parse(searchParams);
-		filters.put("user.id", new SearchFilter("user.id", Operator.EQ, userId));
+		filters.put("id", new SearchFilter("id", Operator.EQ, userId));
+//		for (Entry<String, SearchFilter> elem	 : filters.entrySet()) {
+//			System.out.println("====> key="+elem.getKey()+": value="+elem.getValue().fieldName);
+//		}
 		
-		Specification<Task> spec = DynamicSpecifications.bySearchFilter(filters.values(), Task.class);
+		
+		//Specification<Task> spec = DynamicSpecifications.bySearchFilter(filters.values(), Task.class);
+		Specification<Task> spec = MyDynamic.bySearchFilter(filters.values(), Task.class);
 		return spec;
 	}
 
