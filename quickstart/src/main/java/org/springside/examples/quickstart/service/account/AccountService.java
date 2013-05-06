@@ -1,12 +1,14 @@
 package org.springside.examples.quickstart.service.account;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import org.springside.examples.quickstart.entity.User;
@@ -14,9 +16,14 @@ import org.springside.examples.quickstart.repository.TaskDao;
 import org.springside.examples.quickstart.repository.UserDao;
 import org.springside.examples.quickstart.service.ServiceException;
 import org.springside.examples.quickstart.service.account.ShiroDbRealm.ShiroUser;
+import org.springside.modules.persistence.DynamicSpecifications;
+import org.springside.modules.persistence.SearchFilter;
+import org.springside.modules.persistence.SearchFilter.Operator;
 import org.springside.modules.security.utils.Digests;
 import org.springside.modules.utils.DateProvider;
 import org.springside.modules.utils.Encodes;
+
+import com.google.common.collect.Maps;
 
 /**
  * 用户管理类.
@@ -39,6 +46,10 @@ public class AccountService {
 	private DateProvider dateProvider = DateProvider.DEFAULT;
 
 	public List<User> getAllUser() {
+		
+		Specification<User> spec=buildSpecification2();
+		List<User> all=userDao.findAll(spec);
+		
 		return (List<User>) userDao.findAll();
 	}
 
@@ -102,6 +113,19 @@ public class AccountService {
 
 		byte[] hashPassword = Digests.sha1(user.getPlainPassword().getBytes(), salt, HASH_INTERATIONS);
 		user.setPassword(Encodes.encodeHex(hashPassword));
+	}
+	
+	/**
+	 * 创建动态查询条件组合.
+	 */
+	private Specification<User> buildSpecification2() {
+		Map<String, SearchFilter> filters = Maps.newHashMap();
+		filters.put("name", new SearchFilter("name", Operator.LIKE, "u"));
+//		for (Entry<String, SearchFilter> elem	 : filters.entrySet()) {
+//			System.out.println("====> key="+elem.getKey()+": value="+elem.getValue().fieldName);
+//		}
+		Specification<User> spec = DynamicSpecifications.bySearchFilter(filters.values(), User.class);
+		return spec;
 	}
 
 	@Autowired

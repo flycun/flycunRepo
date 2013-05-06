@@ -64,9 +64,9 @@ public class TaskController {
 //			System.out.println("===>paramName="+paramName);
 //		}
 		Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, "search_");
-		for (Map.Entry<String, Object> elem : searchParams.entrySet()) {
-			System.out.println("========>key="+elem.getKey()+":value="+elem.getValue());
-		}
+//		for (Map.Entry<String, Object> elem : searchParams.entrySet()) {
+//			System.out.println("========>key="+elem.getKey()+":value="+elem.getValue());
+//		}
 		Long userId = getCurrentUserId();
 
 		Page<Task> tasks = taskService.getUserTask(userId, searchParams, pageNumber, pageSize, sortType);
@@ -75,7 +75,6 @@ public class TaskController {
 		model.addAttribute("sortType", sortType);
 		model.addAttribute("sortTypes", sortTypes);
 		// 将搜索条件编码成字符串，用于排序，分页的URL
-		System.out.println("=====>query sql="+Servlets.encodeParameterStringWithPrefix(searchParams, "serach_"));
 		model.addAttribute("searchParams", Servlets.encodeParameterStringWithPrefix(searchParams, "search_"));
 
 		return "task/taskList";

@@ -1,1 +1,11 @@
+/application.development.properties
+/application.functional.properties
+/application.properties
+/application.test.properties
+/applicationContext-shiro.xml
+/applicationContext.xml
+/data
+/ehcache
+/logback.xml
 /org
+/sql

@@ -11,10 +11,10 @@ import javax.persistence.criteria.Root;
 import org.springframework.data.jpa.domain.Specification;
 import org.springside.examples.quickstart.entity.User;
 
-public class MySpecification implements Specification<User>
+public class  MySpecification implements Specification<User>
 {
 	@Override
-	public Predicate toPredicate(Root<User> root, CriteriaQuery<?> query, CriteriaBuilder cb)
+	public  Predicate toPredicate(Root<User> root, CriteriaQuery<?> query, CriteriaBuilder cb)
 	{
 
 //		CriteriaQuery<User> cq = cb.createQuery(User.class);
@@ -22,9 +22,12 @@ public class MySpecification implements Specification<User>
 //		Path<Set<String>> expression=rt.get("ss");
 //		cq.select(rt).where(cb.isMember("", expression));
 		
-		root = query.from(User.class);
-		Path nameExp = root.get("loginName");
-		return cb.like(nameExp, "%ad%");
+		Path expression=root.get("name");
+		//Admin
+		//Calvin
+//		root = query.from(User.class);
+//		Path nameExp = root.get("loginName");
+		return cb.like(expression, "%%");
 
 	}
 }

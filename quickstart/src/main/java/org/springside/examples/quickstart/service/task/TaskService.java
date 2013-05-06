@@ -17,7 +17,9 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import org.springside.examples.quickstart.entity.Task;
+import org.springside.examples.quickstart.entity.User;
 import org.springside.examples.quickstart.repository.TaskDao;
+import org.springside.examples.quickstart.repository.UserDao;
 import org.springside.modules.persistence.DynamicSpecifications;
 import org.springside.modules.persistence.SearchFilter;
 import org.springside.modules.persistence.SearchFilter.Operator;
@@ -29,6 +31,7 @@ import org.springside.modules.persistence.SearchFilter.Operator;
 public class TaskService {
 
 	private TaskDao taskDao;
+	private UserDao userDao;
 
 	public Task getTask(Long id) {
 		return taskDao.findOne(id);
@@ -52,6 +55,7 @@ public class TaskService {
 			String sortType) {
 		PageRequest pageRequest = buildPageRequest(pageNumber, pageSize, sortType);
 		Specification<Task> spec = buildSpecification(userId, searchParams);
+		
 		return taskDao.findAll(spec, pageRequest);
 	}
 
@@ -74,19 +78,14 @@ public class TaskService {
 	 */
 	private Specification<Task> buildSpecification(Long userId, Map<String, Object> searchParams) {
 		Map<String, SearchFilter> filters = SearchFilter.parse(searchParams);
-		filters.put("id", new SearchFilter("id", Operator.EQ, userId));
-//		for (Entry<String, SearchFilter> elem	 : filters.entrySet()) {
-//			System.out.println("====> key="+elem.getKey()+": value="+elem.getValue().fieldName);
-//		}
-		
-		
-		//Specification<Task> spec = DynamicSpecifications.bySearchFilter(filters.values(), Task.class);
-		Specification<Task> spec = MyDynamic.bySearchFilter(filters.values(), Task.class);
+		filters.put("user.id", new SearchFilter("user.id", Operator.EQ, userId));
+		Specification<Task> spec = DynamicSpecifications.bySearchFilter(filters.values(), Task.class);
 		return spec;
 	}
-
+	
 	@Autowired
 	public void setTaskDao(TaskDao taskDao) {
 		this.taskDao = taskDao;
 	}
+	
 }
