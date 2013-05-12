@@ -36,12 +36,10 @@ public class SimpleExample {
 		log.info("------- Scheduling Job  -------------------");
 
 		// 定义一个绑定到 HelloJob class的 job实例
-		JobDetail job = newJob(HelloJob.class).withIdentity("job1", "group1")
-				.build();
+		JobDetail job = newJob(HelloJob.class).withIdentity("job1", "group1").build();
 
 		// 定义一个该job的触发器
-		Trigger trigger = newTrigger().withIdentity("trigger1", "group1")
-				.startAt(runTime).build();
+		Trigger trigger = newTrigger().withIdentity("trigger1", "group1").startAt(runTime).build();
 
 		// 通知quartz使用触发器调度job
 		sched.scheduleJob(job, trigger);
